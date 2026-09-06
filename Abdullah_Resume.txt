@@ -1,0 +1,49 @@
+MUHAMMAD ABDULLAH MUNAWAR
+Artificial Intelligence Undergraduate | Python Developer
+Multan, Pakistan | 03205447931 | abdullahrao07311@gmail.com
+GitHub: https://github.com/abdullahaieng
+LinkedIn: http://www.linkedin.com/in/abdullahmunawar-ai
+
+PROFESSIONAL SUMMARY
+Artificial Intelligence undergraduate skilled in building full-stack applications and machine learning systems with Python, Next.js, and Firebase. Experienced in AI-assisted development and prompt engineering to ship clean, production-quality code. Has architected scalable, object-oriented software and independently shipped projects spanning e-commerce, healthcare, and data science. Seeking an AI/Software Engineering internship to apply these skills at scale.
+
+TECHNICAL SKILLS
+Programming Languages: Python, C++, JavaScript, HTML, CSS
+Machine Learning & Data: Scikit-learn, NumPy, Pandas, Matplotlib, Seaborn
+Web Development: Next.js, Firebase, Cloudinary, Streamlit, Vercel
+Developer Tools: Git, GitHub, VS Code, Qt Creator
+AI Tools & Prompt Engineering: ChatGPT, Claude Code, Cursor, OpenAI Codex, Google Gemini, n8n, Canva
+
+PROJECTS
+PakTech - Full-Stack E-Commerce Platform | Next.js, Firebase, Cloudinary, Vercel
+Engineered a full-stack e-commerce platform for a Pakistani tech accessories brand using Next.js, Firebase Authentication, and Firestore. Designed an editorial dark-themed UI with interactive motion effects. Integrated Cloudinary and deployed on Vercel.
+
+Drug Classifier - Machine Learning Web App | Python, Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Streamlit
+Built supervised Logistic Regression and K-Nearest Neighbors pipelines to classify optimal drug prescriptions. Performed preprocessing, analysis, visualization, and deployed real-time predictions with Streamlit.
+
+FitZone - Gym Management Desktop App | C++, Qt Creator, OOP
+Architected a scalable 20-class Qt6 system across three layers for membership, scheduling, and billing management using encapsulation, inheritance, and polymorphism.
+
+KidCare Clinic - Hospital Management Web App | HTML, CSS, JavaScript
+Built role-based Admin and Doctor portals with localStorage persistence, appointment booking, permissions, dashboards, and Chart.js scheduling analytics.
+
+EDUCATION
+Bachelor of Science in Artificial Intelligence
+Air University - Expected Graduation: 2029
+Relevant Coursework: Object-Oriented Programming, Digital Logic Design, Machine Learning
+
+CERTIFICATIONS
+Prompt Engineering for AI Applications - Alison
+AI for Beginners - HP LIFE
+Basics of Machine Learning Algorithms - UniAthena x Cambridge Intl. Qualifications
+Data Analytics Job Simulation - Deloitte x Forage
+Create Your First Python Program - UST / Coursera
+Graphic Design: LinkedIn 3D Effect with Canva - Coursera
+
+ACHIEVEMENTS
+6th Regional & 30th National - Kangaroo International Mathematics Competition
+100/100 - Wafaq-ul-Madaris Examination
+2nd Position - Cambridge Language Council Presentation Competition
+
+LANGUAGES
+English, Urdu
