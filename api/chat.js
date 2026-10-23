@@ -13,12 +13,12 @@ module.exports = async (req, res) => {
     message.length > 1000
   ) {
     return res.status(400).json({
-      error: "Please enter a message of up to 1000 characters."
+      error: "Please enter a message of up to 500 characters."
     });
   }
 
-  const backendUrl = process.env.RAG_BACKEND_URL;
-  const apiKey = process.env.RAG_API_KEY;
+  const backendUrl = process.env.RAG_BACKEND_URL="https://clara-seriously-brokers-characters.trycloudflare.com";
+  const apiKey = process.env.MY_API_12_KA_4="72fe941a5ce148f7bfcbf61433350606c63728064cc9404b850f4b5c084c5fc6";
 
   if (!backendUrl || !apiKey) {
     return res.status(500).json({
