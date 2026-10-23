@@ -109,3 +109,137 @@ window.addEventListener("resize", () => {
   resizeNeuralCanvas();
   createNeuralNodes();
 });
+
+
+
+/* ===== Abdullah AI Chat ===== */
+(() => {
+  const robot = document.querySelector(".portrait.robot");
+  const chatPanel = document.getElementById("aiChatPanel");
+  const closeButton = document.getElementById("aiChatClose");
+  const chatForm = document.getElementById("aiChatForm");
+  const chatInput = document.getElementById("aiChatInput");
+  const messages = document.getElementById("aiChatMessages");
+  const sendButton = document.getElementById("aiChatSend");
+
+  if (
+    !robot ||
+    !chatPanel ||
+    !closeButton ||
+    !chatForm ||
+    !chatInput ||
+    !messages ||
+    !sendButton
+  ) {
+    console.error("Abdullah AI chat: required HTML elements are missing.");
+    return;
+  }
+
+  // Make the existing robot image open the chat.
+  const trigger = robot.closest("#robotChatTrigger") || robot;
+
+  if (trigger === robot) {
+    robot.setAttribute("role", "button");
+    robot.setAttribute("tabindex", "0");
+    robot.setAttribute("aria-label", "Open Abdullah AI chat");
+  }
+
+  const openChat = () => {
+    chatPanel.classList.add("is-open");
+    chatPanel.setAttribute("aria-hidden", "false");
+    chatInput.focus();
+  };
+
+  const closeChat = () => {
+    chatPanel.classList.remove("is-open");
+    chatPanel.setAttribute("aria-hidden", "true");
+    trigger.focus();
+  };
+
+  trigger.addEventListener("click", openChat);
+
+  if (trigger === robot) {
+    robot.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openChat();
+      }
+    });
+  }
+
+  closeButton.addEventListener("click", closeChat);
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      chatPanel.classList.contains("is-open")
+    ) {
+      closeChat();
+    }
+  });
+
+  function addMessage(text, sender) {
+    const bubble = document.createElement("div");
+    bubble.className =
+      sender === "user"
+        ? "ai-message ai-message-user"
+        : "ai-message ai-message-bot";
+
+    // Use textContent so replies are displayed as text, not HTML.
+    bubble.textContent = text;
+    messages.appendChild(bubble);
+    messages.scrollTop = messages.scrollHeight;
+    return bubble;
+  }
+
+  chatForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const message = chatInput.value.trim();
+
+    if (!message || sendButton.disabled) {
+      return;
+    }
+
+    addMessage(message, "user");
+    chatInput.value = "";
+    sendButton.disabled = true;
+    chatInput.disabled = true;
+
+    const loadingBubble = addMessage("Thinking...", "bot");
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(
+          data.error || "The AI service is temporarily unavailable."
+        );
+      }
+
+      if (typeof data.answer !== "string") {
+        throw new Error("The AI returned an unexpected response.");
+      }
+
+      loadingBubble.textContent = data.answer;
+    } catch (error) {
+      loadingBubble.textContent =
+        error.message ||
+        "Couldn't connect to the AI. Please try again in a moment.";
+    } finally {
+      sendButton.disabled = false;
+      chatInput.disabled = false;
+      chatInput.focus();
+      messages.scrollTop = messages.scrollHeight;
+    }
+  });
+})();
+
